@@ -1,0 +1,66 @@
+.main {
+	margin-left: 10%;
+	margin-right: 10%;
+}
+
+#base-city-box {
+	width: 70%;
+	height: auto;
+	background-color: #ADDEFF;	
+	border-style: solid;
+	border-width: 1px;
+	border-color: #6FC4FC;
+	border-radius: 10px;
+	padding-bottom: 20px;
+	padding-top: 20px;
+	margin-bottom: 20px;
+}
+
+#base-city-name {
+	font-size: 28px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.stop-box {
+	width: 50%
+}
+
+.stop-box-text {
+	font-size: 18px;
+	margin-left: 10px;
+}
+
+.stop-box-title {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.triangle-down {
+	width: 0;
+	height: 0;
+	border-left: 50px solid transparent;
+	border-right: 50px solid transparent;
+	border-top: 100px solid #0F9FFF;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.edit-button {
+	float: right;
+	margin-left: 5px;
+}
+
+.finalize-button {
+	width: 70%;
+	height: 65px;
+	margin-bottom: 20px;
+}
+
+.add-stop-button {
+	width: 50%;
+	margin-top: 10px;
+	margin-bottom: 30px;
+}
+
+

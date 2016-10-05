@@ -1,0 +1,71 @@
+2016-10-05T16:46:13.738 :: [INFO] - Starting server
+2016-10-05T16:46:13.750 :: [INFO] - Server started at port 8080
+2016-10-05T16:46:13.750 :: [INFO] - Accepting connections...
+2016-10-05T16:47:56.415 :: [INFO] - Starting server
+2016-10-05T16:47:56.420 :: [INFO] - Server started at port 8080
+2016-10-05T16:47:56.421 :: [INFO] - Accepting connections...
+2016-10-05T16:47:57.389 :: [INFO] - Connection Accepted at port: 53856
+2016-10-05T16:47:57.425 :: [INFO] - Connection at port 53856 assigned to ID: E3263C39
+2016-10-05T16:47:57.440 :: [INFO] - GET Request Received: /cagado - ID: E3263C39
+2016-10-05T16:47:57.456 :: [ERROR] - File not found!: /cagado
+2016-10-05T16:47:57.477 :: [INFO] - Connection closed - ID: E3263C39
+2016-10-05T16:48:00.442 :: [INFO] - Connection Accepted at port: 53858
+2016-10-05T16:48:00.443 :: [INFO] - Connection at port 53858 assigned to ID: C7CE39ED
+2016-10-05T16:48:00.444 :: [INFO] - GET Request Received: / - ID: C7CE39ED
+2016-10-05T16:48:00.446 :: [INFO] - Connection closed - ID: C7CE39ED
+2016-10-05T16:48:05.589 :: [INFO] - Connection Accepted at port: 53864
+2016-10-05T16:48:05.589 :: [INFO] - Connection at port 53864 assigned to ID: 168B61ED
+2016-10-05T16:48:05.591 :: [INFO] - GET Request Received: /editor.html - ID: 168B61ED
+2016-10-05T16:48:05.593 :: [INFO] - Connection closed - ID: 168B61ED
+2016-10-05T16:48:05.616 :: [INFO] - Connection Accepted at port: 53865
+2016-10-05T16:48:05.616 :: [INFO] - Connection at port 53865 assigned to ID: A4E78F01
+2016-10-05T16:48:05.617 :: [INFO] - Connection Accepted at port: 53866
+2016-10-05T16:48:05.617 :: [INFO] - Connection at port 53866 assigned to ID: 450B2517
+2016-10-05T16:48:05.618 :: [INFO] - Connection Accepted at port: 53867
+2016-10-05T16:48:05.619 :: [INFO] - Connection at port 53867 assigned to ID: 062C9D4C
+2016-10-05T16:48:05.619 :: [INFO] - GET Request Received: /css/bootstrap.min.css - ID: A4E78F01
+2016-10-05T16:48:05.621 :: [INFO] - GET Request Received: /css/custom.css - ID: 450B2517
+2016-10-05T16:48:05.623 :: [INFO] - Connection closed - ID: 450B2517
+2016-10-05T16:48:05.622 :: [INFO] - Connection closed - ID: A4E78F01
+2016-10-05T16:48:05.630 :: [INFO] - GET Request Received: /js/bootstrap.min.js - ID: 062C9D4C
+2016-10-05T16:48:05.633 :: [INFO] - Connection closed - ID: 062C9D4C
+2016-10-05T16:48:05.751 :: [INFO] - Connection Accepted at port: 53868
+2016-10-05T16:48:05.752 :: [INFO] - Connection at port 53868 assigned to ID: 9F0DEFBE
+2016-10-05T16:48:05.754 :: [INFO] - GET Request Received: /fonts/glyphicons-halflings-regular.woff2 - ID: 9F0DEFBE
+2016-10-05T16:48:42.591 :: [INFO] - Starting server
+2016-10-05T16:48:42.610 :: [INFO] - Server started at port 8080
+2016-10-05T16:48:42.610 :: [INFO] - Accepting connections...
+2016-10-05T16:48:50.750 :: [INFO] - Connection Accepted at port: 53893
+2016-10-05T16:48:50.784 :: [INFO] - Connection at port 53893 assigned to ID: 4FC66201
+2016-10-05T16:48:50.799 :: [INFO] - GET Request Received: /editor.html - ID: 4FC66201
+2016-10-05T16:48:50.830 :: [INFO] - Connection closed - ID: 4FC66201
+2016-10-05T16:48:50.844 :: [INFO] - Connection Accepted at port: 53894
+2016-10-05T16:48:50.845 :: [INFO] - Connection at port 53894 assigned to ID: 93F75D78
+2016-10-05T16:48:50.846 :: [INFO] - Connection Accepted at port: 53895
+2016-10-05T16:48:50.846 :: [INFO] - Connection at port 53895 assigned to ID: F2AB5A7F
+2016-10-05T16:48:50.849 :: [INFO] - Connection Accepted at port: 53896
+2016-10-05T16:48:50.849 :: [INFO] - Connection at port 53896 assigned to ID: 121CAC2C
+2016-10-05T16:48:50.851 :: [INFO] - GET Request Received: /css/bootstrap.min.css - ID: 93F75D78
+2016-10-05T16:48:50.852 :: [INFO] - GET Request Received: /css/custom.css - ID: F2AB5A7F
+2016-10-05T16:48:50.853 :: [INFO] - Connection closed - ID: F2AB5A7F
+2016-10-05T16:48:50.854 :: [INFO] - Connection closed - ID: 93F75D78
+2016-10-05T16:48:50.857 :: [INFO] - GET Request Received: /js/bootstrap.min.js - ID: 121CAC2C
+2016-10-05T16:48:50.859 :: [INFO] - Connection closed - ID: 121CAC2C
+2016-10-05T16:48:50.952 :: [INFO] - Connection Accepted at port: 53897
+2016-10-05T16:48:50.952 :: [INFO] - Connection at port 53897 assigned to ID: 7C60BF38
+2016-10-05T16:48:50.954 :: [INFO] - GET Request Received: /fonts/glyphicons-halflings-regular.woff2 - ID: 7C60BF38
+2016-10-05T16:48:50.956 :: [WARN] - File type not inferred
+2016-10-05T16:48:50.957 :: [INFO] - Connection closed - ID: 7C60BF38
+2016-10-05T16:50:03.323 :: [INFO] - Connection Accepted at port: 53943
+2016-10-05T16:50:03.325 :: [INFO] - Connection at port 53943 assigned to ID: 398D86B6
+2016-10-05T16:50:03.326 :: [INFO] - Connection Accepted at port: 53944
+2016-10-05T16:50:03.326 :: [INFO] - Connection at port 53944 assigned to ID: E8F0054F
+2016-10-05T16:50:03.327 :: [INFO] - GET Request Received: /css/custom.css - ID: 398D86B6
+2016-10-05T16:50:03.328 :: [INFO] - GET Request Received: /css/bootstrap.min.css - ID: E8F0054F
+2016-10-05T16:50:03.329 :: [INFO] - Connection closed - ID: 398D86B6
+2016-10-05T16:50:03.331 :: [INFO] - Connection closed - ID: E8F0054F
+2016-10-05T16:50:03.571 :: [INFO] - Connection Accepted at port: 53945
+2016-10-05T16:50:03.572 :: [INFO] - Connection at port 53945 assigned to ID: 3741D10F
+2016-10-05T16:50:03.574 :: [INFO] - GET Request Received: /css/bootstrap.min.css.map - ID: 3741D10F
+2016-10-05T16:50:03.581 :: [WARN] - File type not inferred
+2016-10-05T16:50:03.587 :: [INFO] - Connection closed - ID: 3741D10F
