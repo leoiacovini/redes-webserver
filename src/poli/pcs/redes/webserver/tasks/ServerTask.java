@@ -28,15 +28,13 @@ public class ServerTask implements Runnable {
     @Override
     public void run() {
         try {
-            router = new Router();
             setupServerIO();
+            this.router = new Router();
             while (!socket.isClosed()) {
                 String request = readRequestString();
                 if (!request.isEmpty()) {
                     handleRequest(request);
-                    bufferedReader.close();
-                    printStream.close();
-                    socket.close();
+                    closeIO();
                 }
             }
             logger.info("Connection closed - ID: "  + requestID);
@@ -45,10 +43,16 @@ public class ServerTask implements Runnable {
         }
     }
 
+    private void closeIO() throws IOException {
+        bufferedReader.close();
+        printStream.close();
+        socket.close();
+    }
+
     private void handleRequest(String request) throws IOException {
         HttpRequest req = new HttpRequest(request);
         logger.info(req.getMethod() + " Request Received: " + req.getPath() + " - ID: " + requestID);
-        HttpResponse httpResponse = router.routeFileRequest(req);
+        HttpResponse httpResponse = router.routeFileRequest();
         writeHttpResponse(httpResponse);
     }
 
@@ -59,10 +63,6 @@ public class ServerTask implements Runnable {
 
     private void writeHttpResponse(HttpResponse httpResponse) throws IOException {
         printStream.write(httpResponse.renderResponseBytes());
-    }
-
-    private void writeResponseString(String response) throws IOException {
-        printStream.println(response);
     }
 
     private String readRequestString() throws IOException {

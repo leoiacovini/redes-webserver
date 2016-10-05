@@ -11,15 +11,13 @@ import java.nio.file.Paths;
 
 public class Router {
 
-    private HttpRequest httpRequest;
+    public Router() {
 
-    public Router(HttpRequest httpRequest) {
-        this.httpRequest = httpRequest;
     }
 
-    public HttpResponse routeFileRequest() {
+    public HttpResponse routeFileRequest(HttpRequest httpRequest) {
         try {
-            return handleRequest();
+            return handleRequest(httpRequest);
         } catch (IOException e) {
             Logger.getLogger().error("Error during response");
             e.printStackTrace();
@@ -27,7 +25,7 @@ public class Router {
         }
     }
     
-    private HttpResponse handleRequest() throws IOException {
+    private HttpResponse handleRequest(HttpRequest httpRequest) throws IOException {
         Path path = Paths.get(httpRequest.getPath());
         if (Files.exists(path)) {
             return HttpResponse.fromFile(200, httpRequest.getPath());
