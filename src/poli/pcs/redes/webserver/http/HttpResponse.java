@@ -10,12 +10,12 @@ import java.nio.file.Paths;
 
 public class HttpResponse {
 
-    private int statusCode;
+    private HttpStatusCode statusCode;
     private HttpHeaders headers;
     private String body;
     private byte[] byteBody;
 
-    public HttpResponse(int statusCode, String body, ContentType contentType) {
+    public HttpResponse(HttpStatusCode statusCode, String body, ContentType contentType) {
         this.statusCode = statusCode;
         this.body = body;
         this.byteBody = body.getBytes();
@@ -25,7 +25,7 @@ public class HttpResponse {
         }
     }
 
-    public HttpResponse(int statusCode, byte[] body, ContentType contentType) {
+    public HttpResponse(HttpStatusCode statusCode, byte[] body, ContentType contentType) {
         this.statusCode = statusCode;
         this.byteBody = body;
         this.headers = new HttpHeaders();
@@ -34,7 +34,7 @@ public class HttpResponse {
         }
     }
 
-    public static HttpResponse fromFile(int statusCode, String filePath) throws IOException {
+    public static HttpResponse fromFile(HttpStatusCode statusCode, String filePath) throws IOException {
         Path path = Paths.get("webfiles/", filePath);
         ContentType contentType = ContentType.formFileName(filePath);
         return new HttpResponse(statusCode, Files.readAllBytes(path), contentType);
@@ -47,7 +47,7 @@ public class HttpResponse {
     private byte[] renderHeader() {
         int contentLength = byteBody.length;
         headers.put("Content-Length", String.valueOf(contentLength));
-        return ("HTTP/1.1 " + statusCode + " " + statusCodeDescription() + "\n" + headers.toString() + "\r\n").getBytes();
+        return ("HTTP/1.1 " + statusCode.toCode() + " " + statusCode.toString() + "\n" + headers.toString() + "\r\n").getBytes();
     }
 
     private byte[] concatHeaderBody(byte[] head) {
@@ -57,12 +57,5 @@ public class HttpResponse {
         return responseBytes;
     }
 
-    private String statusCodeDescription() {
-        switch (statusCode) {
-            case 200: return "OK";
-            case 404: return "NotFound";
-            default: return "?";
-        }
-    }
 
 }
