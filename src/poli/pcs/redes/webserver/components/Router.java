@@ -26,13 +26,14 @@ public class Router {
     }
     
     private HttpResponse handleRequest(HttpRequest httpRequest) throws IOException {
-        Path path = Paths.get(httpRequest.getPath());
-        if (Files.exists(path)) {
+        Path path = Paths.get("webfiles" + httpRequest.getPath());
+        if (Files.exists(path) && !Files.isDirectory(path)) {
             return HttpResponse.fromFile(200, httpRequest.getPath());
-        } else if (httpRequest.getPath().equals("/")) {
-            return HttpResponse.fromFile(200, "index.html");
+        } else if (httpRequest.getPath().toCharArray()[httpRequest.getPath().length() - 1] == '/') {
+            return HttpResponse.fromFile(200, httpRequest.getPath() + "index.html");
         } else {
-            String notFoundPageContent = String.join("\n", Files.readAllLines(Paths.get("webfiles/", "html/404.html")));
+            Logger.getLogger().warn("Page not found: " + httpRequest.getPath());
+            String notFoundPageContent = String.join("\n", Files.readAllLines(Paths.get("webfiles", "/html/404.html")));
             return new HttpResponse(404, notFoundPageContent, ContentType.HTML);
         }
     }

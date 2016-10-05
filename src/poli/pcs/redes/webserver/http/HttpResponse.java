@@ -20,14 +20,18 @@ public class HttpResponse {
         this.body = body;
         this.byteBody = body.getBytes();
         this.headers = new HttpHeaders();
-        this.headers.put("Content-Type", contentType.toString());
+        if (contentType != ContentType.OTHER) {
+            this.headers.put("Content-Type", contentType.toString());
+        }
     }
 
     public HttpResponse(int statusCode, byte[] body, ContentType contentType) {
         this.statusCode = statusCode;
         this.byteBody = body;
         this.headers = new HttpHeaders();
-        this.headers.put("Content-Type", contentType.toString());
+        if (contentType != ContentType.OTHER) {
+            this.headers.put("Content-Type", contentType.toString());
+        }
     }
 
     public static HttpResponse fromFile(int statusCode, String filePath) throws IOException {
@@ -43,7 +47,7 @@ public class HttpResponse {
     private byte[] renderHeader() {
         int contentLength = byteBody.length;
         headers.put("Content-Length", String.valueOf(contentLength));
-        return ("HTTP/1.1 " + statusCode + " " + statusCodeDescription() + "\n" + headers.toString() + "\n\r").getBytes();
+        return ("HTTP/1.1 " + statusCode + " " + statusCodeDescription() + "\n" + headers.toString() + "\r\n").getBytes();
     }
 
     private byte[] concatHeaderBody(byte[] head) {

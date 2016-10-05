@@ -3,7 +3,7 @@ package poli.pcs.redes.webserver.http;
 import poli.pcs.redes.webserver.utils.Logger;
 
 public enum ContentType {
-    TEXT, HTML, JPG, PNG, JSON, XML, CSS, JS;
+    TEXT, HTML, JPG, PNG, JSON, XML, CSS, JS, OTHER;
 
     static public ContentType formFileName(String fileName) {
         String[] fileParts = fileName.split("\\.");
@@ -18,14 +18,14 @@ public enum ContentType {
             case "js": return JS;
             default: {
                 Logger.getLogger().warn("File type not inferred");
-                return TEXT;
+                return OTHER;
             }
         }
     }
 
     public String toString() {
         switch (this) {
-            case TEXT: return "text/plain";
+            case TEXT: return "text/plain; charset=utf-8";
             case HTML: return "text/html";
             case JPG: return "image/jpeg";
             case PNG: return "image/png";
@@ -33,7 +33,7 @@ public enum ContentType {
             case XML: return "application/xml";
             case JS: return "text/javascript";
             case CSS: return "text/css";
-            default: return "text/plain";
+            default: return "";
         }
     }
 }
