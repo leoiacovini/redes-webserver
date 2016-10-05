@@ -52,7 +52,7 @@ public class ServerTask implements Runnable {
     private void handleRequest(String request) throws IOException {
         HttpRequest req = new HttpRequest(request);
         logger.info(req.getMethod() + " Request Received: " + req.getPath() + " - ID: " + requestID);
-        HttpResponse httpResponse = router.routeFileRequest();
+        HttpResponse httpResponse = router.routeFileRequest(req);
         writeHttpResponse(httpResponse);
     }
 
