@@ -2,12 +2,10 @@ package poli.pcs.redes.webserver;
 
 import poli.pcs.redes.webserver.tasks.ServerTask;
 import poli.pcs.redes.webserver.utils.Logger;
-import sun.nio.ch.ThreadPool;
 
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 

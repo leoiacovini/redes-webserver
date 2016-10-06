@@ -1,8 +1,5 @@
 package poli.pcs.redes.webserver.http;
 
-
-import poli.pcs.redes.webserver.utils.Logger;
-
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -25,7 +22,7 @@ public class HttpResponse {
         }
     }
 
-    public HttpResponse(HttpStatusCode statusCode, byte[] body, ContentType contentType) {
+    private HttpResponse(HttpStatusCode statusCode, byte[] body, ContentType contentType) {
         this.statusCode = statusCode;
         this.byteBody = body;
         this.headers = new HttpHeaders();
@@ -56,6 +53,5 @@ public class HttpResponse {
         System.arraycopy(byteBody, 0, responseBytes, head.length, byteBody.length);
         return responseBytes;
     }
-
 
 }

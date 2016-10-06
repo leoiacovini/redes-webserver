@@ -1,17 +1,18 @@
 package poli.pcs.redes.webserver.components;
 
+import poli.pcs.redes.webserver.components.interceptors.InterceptorResult;
+import poli.pcs.redes.webserver.components.interceptors.TestLogger;
 import poli.pcs.redes.webserver.http.*;
 import poli.pcs.redes.webserver.utils.Logger;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 public class Router {
 
+    private InterceptorChain interceptorChain = new InterceptorChain(new TestLogger());
+
     public HttpResponse routeFileRequest(HttpRequest httpRequest) {
         try {
-            return handleRequest(httpRequest);
+            return handleResponse(handleRequest(httpRequest));
         } catch (IOException e) {
             Logger.getLogger().error("Error during response");
             e.printStackTrace();
@@ -20,16 +21,16 @@ public class Router {
     }
     
     private HttpResponse handleRequest(HttpRequest httpRequest) throws IOException {
-        Path path = Paths.get("webfiles" + httpRequest.getPath());
-        if (Files.exists(path) && !Files.isDirectory(path)) {
-            return HttpResponse.fromFile(HttpStatusCode.OK, httpRequest.getPath());
-        } else if (httpRequest.getPath().toCharArray()[httpRequest.getPath().length() - 1] == '/') {
-            return HttpResponse.fromFile(HttpStatusCode.OK, httpRequest.getPath() + "index.html");
+        InterceptorResult interceptorResult = interceptorChain.processRequest(httpRequest);
+        if (interceptorResult.getHttpResponse() != null) {
+            return interceptorResult.getHttpResponse();
         } else {
-            Logger.getLogger().warn("Page not found: " + httpRequest.getPath());
-            String notFoundPageContent = String.join("\n", Files.readAllLines(Paths.get("webfiles", "/html/404.html")));
-            return new HttpResponse(HttpStatusCode.NOT_FOUND, notFoundPageContent, ContentType.HTML);
+            return HttpController.serveFile(interceptorResult.getHttpRequest());
         }
+    }
+
+    private HttpResponse handleResponse(HttpResponse httpResponse) {
+        return interceptorChain.processResponse(httpResponse);
     }
 
 }

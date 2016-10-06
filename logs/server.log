@@ -1,0 +1,57 @@
+2016-10-05T23:13:23.141 :: [INFO] - Starting server
+2016-10-05T23:13:23.144 :: [INFO] - Server started at port 8080
+2016-10-05T23:13:23.144 :: [INFO] - Accepting connections...
+2016-10-05T23:13:29.747 :: [INFO] - Connection Accepted at port: 59482
+2016-10-05T23:13:29.763 :: [INFO] - Connection at port 59482 assigned to ID: EC5B05F3
+2016-10-05T23:13:29.772 :: [INFO] - GET Request Received: /index.html - ID: EC5B05F3
+2016-10-05T23:13:29.789 :: [INFO] - Connection closed - ID: EC5B05F3
+2016-10-05T23:14:10.404 :: [INFO] - Starting server
+2016-10-05T23:14:10.408 :: [INFO] - Server started at port 8080
+2016-10-05T23:14:10.409 :: [INFO] - Accepting connections...
+2016-10-05T23:14:12.989 :: [INFO] - Connection Accepted at port: 59501
+2016-10-05T23:14:13.005 :: [INFO] - Connection at port 59501 assigned to ID: 51EF0092
+2016-10-05T23:14:13.013 :: [INFO] - GET Request Received: /index.html - ID: 51EF0092
+2016-10-05T23:14:13.014 :: [DEBUG] - INTECEPTOR LOGGER
+2016-10-05T23:14:13.031 :: [INFO] - Connection closed - ID: 51EF0092
+2016-10-05T23:34:06.630 :: [INFO] - Starting server
+2016-10-05T23:34:06.633 :: [INFO] - Server started at port 8080
+2016-10-05T23:34:06.633 :: [INFO] - Accepting connections...
+2016-10-05T23:34:11.595 :: [INFO] - Connection Accepted at port: 60103
+2016-10-05T23:34:11.610 :: [INFO] - Connection at port 60103 assigned to ID: 4A1CD1D4
+2016-10-05T23:34:11.621 :: [INFO] - GET Request Received: /index.html - ID: 4A1CD1D4
+2016-10-05T23:34:11.622 :: [DEBUG] - INTECEPTOR LOGGER
+2016-10-05T23:34:11.640 :: [INFO] - Connection closed - ID: 4A1CD1D4
+2016-10-05T23:34:16.768 :: [INFO] - Connection Accepted at port: 60108
+2016-10-05T23:34:16.768 :: [INFO] - Connection at port 60108 assigned to ID: 1D82220B
+2016-10-05T23:34:16.769 :: [INFO] - GET Request Received: /editor.html - ID: 1D82220B
+2016-10-05T23:34:16.769 :: [DEBUG] - INTECEPTOR LOGGER
+2016-10-05T23:34:16.770 :: [INFO] - Connection closed - ID: 1D82220B
+2016-10-05T23:34:16.775 :: [INFO] - Connection Accepted at port: 60109
+2016-10-05T23:34:16.776 :: [INFO] - Connection at port 60109 assigned to ID: 5A82CE2C
+2016-10-05T23:34:16.776 :: [INFO] - Connection Accepted at port: 60110
+2016-10-05T23:34:16.776 :: [INFO] - Connection at port 60110 assigned to ID: E62FFEF7
+2016-10-05T23:34:16.780 :: [INFO] - GET Request Received: /css/bootstrap.min.css - ID: 5A82CE2C
+2016-10-05T23:34:16.780 :: [DEBUG] - INTECEPTOR LOGGER
+2016-10-05T23:34:16.783 :: [INFO] - Connection closed - ID: 5A82CE2C
+2016-10-05T23:34:16.783 :: [INFO] - Connection Accepted at port: 60111
+2016-10-05T23:34:16.783 :: [INFO] - Connection at port 60111 assigned to ID: 1EBEB174
+2016-10-05T23:34:16.787 :: [INFO] - GET Request Received: /css/custom.css - ID: E62FFEF7
+2016-10-05T23:34:16.788 :: [DEBUG] - INTECEPTOR LOGGER
+2016-10-05T23:34:16.790 :: [INFO] - Connection closed - ID: E62FFEF7
+2016-10-05T23:34:16.790 :: [INFO] - GET Request Received: /js/bootstrap.min.js - ID: 1EBEB174
+2016-10-05T23:34:16.790 :: [DEBUG] - INTECEPTOR LOGGER
+2016-10-05T23:34:16.791 :: [INFO] - Connection closed - ID: 1EBEB174
+2016-10-05T23:34:16.865 :: [INFO] - Connection Accepted at port: 60112
+2016-10-05T23:34:16.865 :: [INFO] - Connection at port 60112 assigned to ID: FFFB44B3
+2016-10-05T23:34:16.866 :: [INFO] - GET Request Received: /fonts/glyphicons-halflings-regular.woff2 - ID: FFFB44B3
+2016-10-05T23:34:16.866 :: [DEBUG] - INTECEPTOR LOGGER
+2016-10-05T23:34:16.867 :: [WARN] - File type not inferred
+2016-10-05T23:34:16.867 :: [INFO] - Connection closed - ID: FFFB44B3
+2016-10-05T23:38:51.277 :: [INFO] - Starting server
+2016-10-05T23:38:51.290 :: [INFO] - Server started at port 8080
+2016-10-05T23:38:51.290 :: [INFO] - Accepting connections...
+2016-10-05T23:38:53.958 :: [INFO] - Connection Accepted at port: 60245
+2016-10-05T23:38:53.975 :: [INFO] - Connection at port 60245 assigned to ID: F2DECB8C
+2016-10-05T23:38:53.987 :: [INFO] - GET Request Received: /editor.html - ID: F2DECB8C
+2016-10-05T23:38:53.987 :: [DEBUG] - INTECEPTOR LOGGER
+2016-10-05T23:38:53.992 :: [INFO] - Connection closed - ID: F2DECB8C
