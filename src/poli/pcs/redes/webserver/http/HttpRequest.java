@@ -19,7 +19,7 @@ public class HttpRequest {
         return stringBody;
     }
 
-    public String getMethod() {
+    public HttpMethod getMethod() {
         return httpRequestHeader.getMethod();
     }
 

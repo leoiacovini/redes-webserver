@@ -2,18 +2,18 @@ package poli.pcs.redes.webserver.http;
 
 public class HttpRequestHeader {
 
-    private String method;
+    private HttpMethod method;
     private String path;
     private HttpHeaders headers;
 
     public HttpRequestHeader(String rawHttpRequestHeader) {
         String[] requestInfoLine =  rawHttpRequestHeader.split("\n")[0].split(" ");
-        method = requestInfoLine[0];
+        method = HttpMethod.fromString(requestInfoLine[0]);
         path = requestInfoLine[1];
         headers = HttpHeaders.parseHttpRequestHeader(rawHttpRequestHeader);
     }
 
-    public String getMethod() {
+    public HttpMethod getMethod() {
         return method;
     }
 

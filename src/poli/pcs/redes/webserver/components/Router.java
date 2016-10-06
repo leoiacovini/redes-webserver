@@ -1,9 +1,6 @@
 package poli.pcs.redes.webserver.components;
 
-import poli.pcs.redes.webserver.http.ContentType;
-import poli.pcs.redes.webserver.http.HttpRequest;
-import poli.pcs.redes.webserver.http.HttpResponse;
-import poli.pcs.redes.webserver.http.HttpStatusCode;
+import poli.pcs.redes.webserver.http.*;
 import poli.pcs.redes.webserver.utils.Logger;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -11,10 +8,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class Router {
-
-    public Router() {
-
-    }
 
     public HttpResponse routeFileRequest(HttpRequest httpRequest) {
         try {
