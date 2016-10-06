@@ -12,7 +12,7 @@ public class Router {
 
     public HttpResponse routeFileRequest(HttpRequest httpRequest) {
         try {
-            return handleResponse(handleRequest(httpRequest));
+            return dispatchRequest(httpRequest);
         } catch (IOException e) {
             Logger.getLogger().error("Error during response");
             e.printStackTrace();
@@ -20,17 +20,16 @@ public class Router {
         }
     }
     
-    private HttpResponse handleRequest(HttpRequest httpRequest) throws IOException {
+    private HttpResponse dispatchRequest(HttpRequest httpRequest) throws IOException {
         InterceptorResult interceptorResult = interceptorChain.processRequest(httpRequest);
+        HttpResponse httpResponse ;
         if (interceptorResult.getHttpResponse() != null) {
-            return interceptorResult.getHttpResponse();
+            httpResponse = interceptorResult.getHttpResponse();
         } else {
-            return HttpController.serveFile(interceptorResult.getHttpRequest());
+            httpResponse = HttpController.serveFile(interceptorResult.getHttpRequest());
         }
-    }
-
-    private HttpResponse handleResponse(HttpResponse httpResponse) {
         return interceptorChain.processResponse(httpResponse);
     }
+
 
 }

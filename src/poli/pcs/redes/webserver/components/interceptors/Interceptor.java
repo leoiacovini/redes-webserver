@@ -4,7 +4,11 @@ import poli.pcs.redes.webserver.http.HttpRequest;
 import poli.pcs.redes.webserver.http.HttpResponse;
 
 public interface Interceptor {
-    public InterceptorResult handleRequest(HttpRequest httpRequest);
-    public HttpResponse handleResponse(HttpResponse httpResponse);
+    default InterceptorResult handleRequest(HttpRequest httpRequest) {
+        return new InterceptorResult(httpRequest);
+    };
+    default HttpResponse handleResponse(HttpResponse httpResponse) {
+        return httpResponse;
+    };
 }
 

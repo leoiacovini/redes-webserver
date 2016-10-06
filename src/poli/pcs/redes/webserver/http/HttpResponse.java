@@ -44,7 +44,7 @@ public class HttpResponse {
     private byte[] renderHeader() {
         int contentLength = byteBody.length;
         headers.put("Content-Length", String.valueOf(contentLength));
-        return ("HTTP/1.1 " + statusCode.toCode() + " " + statusCode.toString() + "\n" + headers.toString() + "\r\n").getBytes();
+        return ("HTTP/1.0" + statusCode.toCode() + " " + statusCode.toString() + "\n" + headers.toString() + "\r\n").getBytes();
     }
 
     private byte[] concatHeaderBody(byte[] head) {
