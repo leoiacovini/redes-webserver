@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Config>
+    <webRoot>webfiles/</webRoot>
+    <secureUsername>username</secureUsername>
+    <securePassword>password</securePassword>
+    <Routes>
+        <Route>
+            <path>/secure-files/.*</path>
+            <controller>poli.pcs.redes.webserver.components.HttpController</controller>
+            <handler>serveProtectedFile</handler>
+        </Route>
+        <Route>
+            <path>/.*</path>
+            <controller>poli.pcs.redes.webserver.components.HttpController</controller>
+            <handler>serveFile</handler>
+        </Route>
+    </Routes>
+</Config>
+

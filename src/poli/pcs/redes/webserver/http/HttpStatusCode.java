@@ -19,7 +19,7 @@ public enum HttpStatusCode {
             case OK: return 202;
             case NOT_FOUND: return 404;
             case BAD_REQUEST: return 400;
-            case UNAUTHORIZED: return 403;
+            case UNAUTHORIZED: return 401;
             case SERVER_ERROR: return 500;
             default: return 500;
         }

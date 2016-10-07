@@ -17,23 +17,19 @@ public class HttpResponse {
         this.body = body;
         this.byteBody = body.getBytes();
         this.headers = new HttpHeaders();
-        if (contentType != ContentType.OTHER) {
-            this.headers.put("Content-Type", contentType.toString());
-        }
+        getContentType(contentType);
     }
 
     private HttpResponse(HttpStatusCode statusCode, byte[] body, ContentType contentType) {
         this.statusCode = statusCode;
         this.byteBody = body;
         this.headers = new HttpHeaders();
-        if (contentType != ContentType.OTHER) {
-            this.headers.put("Content-Type", contentType.toString());
-        }
+        getContentType(contentType);
     }
 
     public static HttpResponse fromFile(HttpStatusCode statusCode, String filePath) throws IOException {
-        Path path = Paths.get("webfiles/", filePath);
-        ContentType contentType = ContentType.formFileName(filePath);
+        Path path = Paths.get(filePath);
+        ContentType contentType = ContentType.fromFileName(filePath);
         return new HttpResponse(statusCode, Files.readAllBytes(path), contentType);
     }
 
@@ -41,10 +37,20 @@ public class HttpResponse {
         return concatHeaderBody(renderHeader());
     }
 
+    public HttpHeaders getHeaders() {
+        return headers;
+    }
+
     private byte[] renderHeader() {
         int contentLength = byteBody.length;
         headers.put("Content-Length", String.valueOf(contentLength));
         return ("HTTP/1.0" + statusCode.toCode() + " " + statusCode.toString() + "\n" + headers.toString() + "\r\n").getBytes();
+    }
+
+    private void getContentType(ContentType contentType) {
+        if (contentType != ContentType.OTHER) {
+            this.headers.put("Content-Type", contentType.toString());
+        }
     }
 
     private byte[] concatHeaderBody(byte[] head) {

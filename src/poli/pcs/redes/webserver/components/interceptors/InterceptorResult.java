@@ -25,4 +25,8 @@ public class InterceptorResult {
     public HttpResponse getHttpResponse() {
         return httpResponse;
     }
+
+    public boolean hasResponse() {
+        return this.httpResponse != null;
+    }
 }

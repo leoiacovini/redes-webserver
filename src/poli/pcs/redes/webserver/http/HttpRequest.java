@@ -11,6 +11,10 @@ public class HttpRequest {
         httpRequestHeader = new HttpRequestHeader(requestParts[0]);
     }
 
+    public void appendToPath(String part) {
+        this.httpRequestHeader.setPath(this.getPath() + part);
+    }
+
     public HttpRequestHeader getHttpRequestHeader() {
         return httpRequestHeader;
     }

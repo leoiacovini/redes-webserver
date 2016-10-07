@@ -1,10 +1,9 @@
 package poli.pcs.redes.webserver.components;
 
-import poli.pcs.redes.webserver.http.ContentType;
-import poli.pcs.redes.webserver.http.HttpRequest;
-import poli.pcs.redes.webserver.http.HttpResponse;
-import poli.pcs.redes.webserver.http.HttpStatusCode;
-import poli.pcs.redes.webserver.utils.Logger;
+import poli.pcs.redes.webserver.components.interceptors.AuthInterceptor;
+import poli.pcs.redes.webserver.components.interceptors.InterceptorResult;
+import poli.pcs.redes.webserver.http.*;
+import poli.pcs.redes.webserver.http.exceptions.PageNotFoundException;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -13,16 +12,29 @@ import java.nio.file.Paths;
 
 public class HttpController {
 
-    public static HttpResponse serveFile(HttpRequest httpRequest) throws IOException {
-        Path path = Paths.get("webfiles" + httpRequest.getPath());
+    private final String webRoot;
+
+    public HttpController(String webRoot) {
+        this.webRoot = webRoot;
+    }
+
+    public HttpResponse serveFile(HttpRequest httpRequest) throws IOException, PageNotFoundException {
+        Path path = Paths.get(webRoot + httpRequest.getPath());
         if (Files.exists(path) && !Files.isDirectory(path)) {
-            return HttpResponse.fromFile(HttpStatusCode.OK, httpRequest.getPath());
-        } else if (httpRequest.getPath().toCharArray()[httpRequest.getPath().length() - 1] == '/') {
-            return HttpResponse.fromFile(HttpStatusCode.OK, httpRequest.getPath() + "index.html");
+            return HttpResponse.fromFile(HttpStatusCode.OK, path.toString());
         } else {
-            Logger.getLogger().warn("Page not found: " + httpRequest.getPath());
-            String notFoundPageContent = String.join("\n", Files.readAllLines(Paths.get("webfiles", "/html/404.html")));
-            return new HttpResponse(HttpStatusCode.NOT_FOUND, notFoundPageContent, ContentType.HTML);
+            throw new PageNotFoundException();
+        }
+    }
+
+    public HttpResponse serveProtectedFile(HttpRequest httpRequest) throws IOException, PageNotFoundException {
+        AuthInterceptor authInterceptor = new AuthInterceptor();
+        InterceptorChain interceptorChain = new InterceptorChain(authInterceptor);
+        InterceptorResult interceptorResult = interceptorChain.processRequest(httpRequest);
+        if (interceptorResult.hasResponse()) {
+            return interceptorChain.processResponse(interceptorResult.getHttpResponse());
+        } else {
+            return interceptorChain.processResponse(serveFile(httpRequest));
         }
     }
 

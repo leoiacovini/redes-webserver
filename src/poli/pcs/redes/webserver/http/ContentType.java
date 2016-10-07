@@ -5,7 +5,7 @@ import poli.pcs.redes.webserver.utils.Logger;
 public enum ContentType {
     TEXT, HTML, JPG, PNG, JSON, XML, CSS, JS, OTHER;
 
-    static public ContentType formFileName(String fileName) {
+    static public ContentType fromFileName(String fileName) {
         String[] fileParts = fileName.split("\\.");
         String extension = fileParts[fileParts.length - 1];
         switch (extension.toLowerCase()) {

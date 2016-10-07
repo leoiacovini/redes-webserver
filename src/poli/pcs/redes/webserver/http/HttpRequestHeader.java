@@ -13,6 +13,10 @@ public class HttpRequestHeader {
         headers = HttpHeaders.parseHttpRequestHeader(rawHttpRequestHeader);
     }
 
+    public void setPath(String path) {
+        this.path = path;
+    }
+
     public HttpMethod getMethod() {
         return method;
     }
