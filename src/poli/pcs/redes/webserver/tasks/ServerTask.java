@@ -22,13 +22,13 @@ public class ServerTask implements Runnable {
         this.logger = Logger.getLogger();
         this.socket = socket;
         this.requestID = UUID.randomUUID().toString().split("-")[0].toUpperCase();
-        logger.info("Connection at port " + socket.getPort() + " assigned to ID: " + requestID);
+        logger.info(socket.getInetAddress() + " Connection at port " + socket.getPort() + " assigned to ID: " + requestID);
     }
 
     @Override
     public void run() {
         try {
-            setupServerIO();
+            setupIO();
             this.router = new Router();
             while (!socket.isClosed()) {
                 String request = readRequestString();
@@ -56,7 +56,7 @@ public class ServerTask implements Runnable {
         writeHttpResponse(httpResponse);
     }
 
-    private void setupServerIO() throws IOException {
+    private void setupIO() throws IOException {
         bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
         printStream = new PrintStream(socket.getOutputStream());
     }

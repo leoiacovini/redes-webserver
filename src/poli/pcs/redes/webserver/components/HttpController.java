@@ -27,6 +27,7 @@ public class HttpController {
         }
     }
 
+    @SuppressWarnings("unused")
     public HttpResponse serveProtectedFile(HttpRequest httpRequest) throws IOException, PageNotFoundException {
         AuthInterceptor authInterceptor = new AuthInterceptor();
         InterceptorChain interceptorChain = new InterceptorChain(authInterceptor);

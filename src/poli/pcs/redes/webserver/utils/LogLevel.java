@@ -12,4 +12,14 @@ public enum LogLevel {
             default: return "UNKNOWN";
         }
     }
+
+    public static LogLevel fromString(String logLevel) {
+        switch (logLevel) {
+            case "DEEBUG": return DEBUG;
+            case "INFO": return INFO;
+            case "WARN": return WARN;
+            case "ERROR": return ERROR;
+            default: return DEBUG;
+        }
+    }
 }

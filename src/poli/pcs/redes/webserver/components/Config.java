@@ -41,18 +41,18 @@ public class Config {
     }
 
     public String getWebRoot() {
-        return getIn("webRoot");
+        return get("webRoot");
     }
 
     public String secureUsername() {
-        return getIn("secureUsername");
+        return get("secureUsername");
     }
 
     public String securePassword() {
-        return getIn("securePassword");
+        return get("securePassword");
     }
 
-    private String getIn(String name) {
+    public String get(String name) {
         return configDocument.getElementsByTagName(name).item(0).getTextContent();
     }
 

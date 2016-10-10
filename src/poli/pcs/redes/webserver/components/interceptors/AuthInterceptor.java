@@ -11,7 +11,11 @@ public class AuthInterceptor implements Interceptor {
 
         String authString = httpRequest.getHeaders().get("Authorization");
         if (authString != null) {
-
+            String[] splitedAuth = authString.split(" ");
+            String authType = splitedAuth[0];
+            if (authType.equals("Basic")) {
+                
+            }
         }
         HttpResponse forbiddenResponse = new HttpResponse(HttpStatusCode.UNAUTHORIZED, "UNAUTHORIZED", ContentType.TEXT);
         return new InterceptorResult(forbiddenResponse);

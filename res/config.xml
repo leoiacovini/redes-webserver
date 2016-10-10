@@ -3,6 +3,7 @@
     <webRoot>webfiles/</webRoot>
     <secureUsername>username</secureUsername>
     <securePassword>password</securePassword>
+    <logLevel>DEBUG</logLevel>
     <Routes>
         <Route>
             <path>/secure-files/.*</path>
