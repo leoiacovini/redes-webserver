@@ -22,7 +22,7 @@ public class ServerTask implements Runnable {
         this.logger = Logger.getLogger();
         this.socket = socket;
         this.requestID = UUID.randomUUID().toString().split("-")[0].toUpperCase();
-        logger.info(socket.getInetAddress() + " Connection at port " + socket.getPort() + " assigned to ID: " + requestID);
+        logger.info(socket.getInetAddress() + " connected to port " + socket.getPort() + " assigned to ID: " + requestID);
     }
 
     @Override

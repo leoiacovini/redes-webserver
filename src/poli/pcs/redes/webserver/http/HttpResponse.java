@@ -7,6 +7,10 @@ import java.nio.file.Paths;
 
 public class HttpResponse {
 
+    public HttpStatusCode getStatusCode() {
+        return statusCode;
+    }
+
     private HttpStatusCode statusCode;
     private HttpHeaders headers;
     private String body;
@@ -44,7 +48,7 @@ public class HttpResponse {
     private byte[] renderHeader() {
         int contentLength = byteBody.length;
         headers.put("Content-Length", String.valueOf(contentLength));
-        return ("HTTP/1.0" + statusCode.toCode() + " " + statusCode.toString() + "\n" + headers.toString() + "\r\n").getBytes();
+        return ("HTTP/1.0 " + statusCode.toCode() + " " + statusCode.toString() + "\n" + headers.toString() + "\r\n").getBytes();
     }
 
     private void getContentType(ContentType contentType) {
