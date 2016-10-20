@@ -4,7 +4,6 @@ import poli.pcs.redes.webserver.components.interceptors.AuthInterceptor;
 import poli.pcs.redes.webserver.components.interceptors.InterceptorResult;
 import poli.pcs.redes.webserver.http.*;
 import poli.pcs.redes.webserver.http.exceptions.PageNotFoundException;
-import poli.pcs.redes.webserver.utils.Logger;
 
 import java.io.IOException;
 import java.nio.file.Files;
